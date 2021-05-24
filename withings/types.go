@@ -103,18 +103,12 @@ type Sleeps struct {
 	Status int `json:"status"`
 	Body   struct {
 		Series []struct {
-			Startdate int64 `json:"startdate"`
-			Enddate   int64 `json:"enddate"`
-			State     int   `json:"state"`
-			Hr        struct {
-				Timestamp int `json:"timestamp"`
-			} `json:"hr"`
-			Rr struct {
-				Timestamp int `json:"timestamp"`
-			} `json:"rr"`
-			Snoring struct {
-				Timestamp int `json:"timestamp"`
-			} `json:"snoring"`
+			Startdate int64          `json:"startdate"`
+			Enddate   int64          `json:"enddate"`
+			State     int            `json:"state"`
+			Hr        map[string]int `json:"hr"`
+			Rr        map[string]int `json:"rr"`
+			Snoring   map[string]int `json:"snoring"`
 		} `json:"series"`
 		Model   int `json:"model"`
 		ModelID int `json:"model_id"`

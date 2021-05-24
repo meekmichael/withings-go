@@ -52,10 +52,12 @@ func parseResponse(resp *http.Response, result interface{}) error {
 	if err != nil {
 		return err
 	}
+	fmt.Printf("rbody %s\n", rbody)
 	return json.Unmarshal(rbody, result)
 }
 
 func reqAndParse(c *Client, fp []FormParam, url, method string, result interface{}) error {
+	fmt.Printf("url %s method %s formParam %+v\n", url, method, fp)
 	ctx, cancel := getNewContext(c.Timeout)
 	defer cancel()
 
@@ -69,7 +71,6 @@ func reqAndParse(c *Client, fp []FormParam, url, method string, result interface
 		return err
 	}
 	defer resp.Body.Close()
-
 	err = parseResponse(resp, result)
 	if err != nil {
 		return err
