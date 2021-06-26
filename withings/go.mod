@@ -1,4 +1,4 @@
-module github.com/zono-dev/withings-go/withings
+module github.com/meekmichael/withings-go/withings
 
 go 1.15
 
